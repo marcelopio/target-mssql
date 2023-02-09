@@ -156,6 +156,7 @@ class mssqlSink(SQLSink):
                 primary_keys=join_keys,
                 as_temp_table=False,
             )
+            self.logger.info(f"Schema: {self.schema}"
             # Create a temp table (Creates from the table above)
             self.logger.info(f"Creating temp table {self.full_table_name}")
             self.connector.create_temp_table_from_table(
