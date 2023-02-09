@@ -124,6 +124,7 @@ class mssqlConnector(SQLConnector):
                     sqlalchemy.Column(property_name, columntype, primary_key=False)
                 )
 
+        self.logging.info(f"Target schema: {self.columns}")
         _ = sqlalchemy.Table(table_name, meta, *columns, schema=schema_name)
         meta.create_all(self._engine)
 
